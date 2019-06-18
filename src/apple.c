@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <math.h>
 
 int n;
 int k;
@@ -7,9 +8,9 @@ int A[100000];
 int p(int m){
   int sum = 0;
   for (int j = 0; j < n; j++){
-    sum += A[j];
+    sum += (A[j]+m-1) / m;
   }
-  return k*m >= sum;
+  return k >= sum;
 }
 
 int main(){
@@ -19,14 +20,14 @@ int main(){
     scanf("%d", &A[i]);
   }
 
-  lb = -1;
-  ub = n;
+  lb = 0;
+  ub = 100001;
 
   while (ub - lb > 1){
     int m = (ub + lb) / 2;
     if (p(m)) ub = m;
     else lb = m;
   }
-  printf("%d\n",A[ub-1]);
+  printf("%d\n",ub);
   return 0;
 }
