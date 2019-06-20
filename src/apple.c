@@ -21,7 +21,7 @@ int main(){
   }
 
   lb = 0;
-  ub = 100001;
+  ub = 1000000000;
 
   while (ub - lb > 1){
     int m = (ub + lb) / 2;
